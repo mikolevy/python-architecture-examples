@@ -10,6 +10,8 @@ pytest = "*"
 [packages]
 django = "*"
 djangorestframework = "*"
+flask = "*"
+sqlalchemy = "*"
 
 [requires]
 python_version = "3.8"
