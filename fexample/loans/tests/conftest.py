@@ -34,8 +34,3 @@ def insurance(next_year) -> Insurance:
         protection_end=next_year,
         status=InsuranceStatus.ACTIVE,
     )
-
-
-
-
-# @pytest.fixture:

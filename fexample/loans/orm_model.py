@@ -27,3 +27,5 @@ def run_mappers():
         'pauses': relationship(Pause, backref='insurance', order_by=pause.c.begin_at),
     })
     mapper(Pause, pause)
+
+

@@ -1,6 +1,5 @@
 from typing import Protocol, List
 
-from fexample.loans import domain_model
 from fexample.loans.domain_model import Insurance
 
 
@@ -19,10 +18,10 @@ class ORMInsuranceRepository:
         self.session = session
 
     def get(self, identifier: str) -> Insurance:
-        return self.session.query(domain_model.Insurance).filter_by(identifier=identifier).one()
+        return self.session.query(Insurance).filter_by(identifier=identifier).one()
 
     def list(self) -> List[Insurance]:
-        return self.session.query(domain_model.Insurance).all()
+        return self.session.query(Insurance).all()
 
     def add(self, insurance: Insurance) -> None:
         self.session.add(insurance)

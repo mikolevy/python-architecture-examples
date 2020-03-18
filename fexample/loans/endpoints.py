@@ -2,6 +2,7 @@ from flask import request, jsonify, Blueprint
 from sqlalchemy.orm.exc import NoResultFound
 
 from fexample.db import db_session
+from fexample.infrastructure import response
 from fexample.location.proxy import current_location
 from fexample.loans import app_services
 from fexample.loans.domain_model import DomainLogicException
@@ -18,8 +19,8 @@ def resume_endpoint():
         db_session.commit()
     except DomainLogicException as error:
         db_session.rollback()
-        return jsonify({'message': str(error)}), 400
+        return response.bad_request(str(error))
     except NoResultFound:
         db_session.rollback()
-        return jsonify({'message': 'Non existing entity'}), 404
-    return '', 204
+        return response.not_found()
+    return response.ok_no_content()
