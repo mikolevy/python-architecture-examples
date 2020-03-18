@@ -11,7 +11,7 @@ db_session = scoped_session(
 
 
 def init_db():
-    from fexample.loans import orm_model
+    from fexample.insurance import orm_model
     orm_model.run_mappers()
     metadata.create_all(bind=engine)
 

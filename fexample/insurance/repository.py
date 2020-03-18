@@ -1,6 +1,6 @@
 from typing import Protocol, List
 
-from fexample.loans.domain_model import Insurance
+from fexample.insurance.domain_model import Insurance
 
 
 class InsuranceRepository(Protocol):

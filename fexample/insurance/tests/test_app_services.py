@@ -1,7 +1,7 @@
 from typing import List
 
-from fexample.loans import app_services
-from fexample.loans.domain_model import Insurance, InsuranceStatus
+from fexample.insurance import app_services
+from fexample.insurance.domain_model import Insurance, InsuranceStatus
 
 
 class InMemoryInsuranceRepository:

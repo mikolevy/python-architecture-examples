@@ -1,6 +1,6 @@
 import pytest
 
-from fexample.loans.domain_model import InsuranceStatus, MAX_AVAILABLE_PAUSES, PauseLimitExceeded, \
+from fexample.insurance.domain_model import InsuranceStatus, MAX_AVAILABLE_PAUSES, PauseLimitExceeded, \
     WrongStateForAction, CarLocationNotAllowed, PauseAlreadyFinished
 
 

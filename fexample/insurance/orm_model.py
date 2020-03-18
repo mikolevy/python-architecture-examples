@@ -2,7 +2,7 @@ from sqlalchemy import Table, Column, Integer, String, DateTime, Enum, ForeignKe
 from sqlalchemy.orm import mapper, relationship
 
 from fexample.db import metadata
-from fexample.loans.domain_model import InsuranceStatus, Insurance, Pause
+from fexample.insurance.domain_model import InsuranceStatus, Insurance, Pause
 
 insurance = Table(
     'insurance', metadata,

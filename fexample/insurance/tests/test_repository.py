@@ -1,4 +1,4 @@
-from fexample.loans.repository import ORMInsuranceRepository
+from fexample.insurance.repository import ORMInsuranceRepository
 
 
 def test_repo_can_save_insurance(session, insurance):

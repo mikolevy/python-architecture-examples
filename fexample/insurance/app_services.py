@@ -1,4 +1,4 @@
-from fexample.loans.repository import InsuranceRepository
+from fexample.insurance.repository import InsuranceRepository
 from fexample.location.proxy import LocationProxy
 
 

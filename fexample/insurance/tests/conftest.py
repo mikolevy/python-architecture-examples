@@ -2,7 +2,7 @@ import datetime
 
 import pytest
 
-from fexample.loans.domain_model import Datetime, Insurance, InsuranceStatus
+from fexample.insurance.domain_model import Datetime, Insurance, InsuranceStatus
 from fexample.location.data_model import Location
 
 

@@ -4,11 +4,11 @@ from sqlalchemy.orm.exc import NoResultFound
 from fexample.db import db_session
 from fexample.infrastructure import response
 from fexample.location.proxy import current_location
-from fexample.loans import app_services
-from fexample.loans.domain_model import DomainLogicException
-from fexample.loans.repository import ORMInsuranceRepository
+from fexample.insurance import app_services
+from fexample.insurance.domain_model import DomainLogicException
+from fexample.insurance.repository import ORMInsuranceRepository
 
-loans = Blueprint('loans', __name__, url_prefix='/loans')
+loans = Blueprint('insurance', __name__, url_prefix='/insurance')
 
 
 @loans.route("/resume", methods=['POST'])
