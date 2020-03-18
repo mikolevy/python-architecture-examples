@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 
 APPLICATION_MODULES = [
-    'loans.apps.LoansConfig'
+    'insurances.apps.InsurancesConfig'
 ]
 
 INSTALLED_APPS = [
