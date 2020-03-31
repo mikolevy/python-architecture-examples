@@ -1,4 +1,4 @@
-from flask import request, jsonify, Blueprint
+from flask import request, Blueprint
 from sqlalchemy.orm.exc import NoResultFound
 
 from fexample.db import db_session
@@ -8,10 +8,10 @@ from fexample.insurance import app_services
 from fexample.insurance.domain_model import DomainLogicException
 from fexample.insurance.repository import ORMInsuranceRepository
 
-loans = Blueprint('insurance', __name__, url_prefix='/insurance')
+insurances = Blueprint('insurance', __name__, url_prefix='/insurance')
 
 
-@loans.route("/resume", methods=['POST'])
+@insurances.route("/resume", methods=['POST'])
 def resume_endpoint():
     repo = ORMInsuranceRepository(db_session)
     try:

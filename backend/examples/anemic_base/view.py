@@ -5,7 +5,7 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 
 from infrastructure import response
-from examples.anemic_model import Insurance, Pause
+from examples.anemic_base.model import Insurance, Pause
 
 MAX_AVAILABLE_PAUSES = 3
 
@@ -22,11 +22,9 @@ def hold(request: Request) -> Response:
         return response.bad_request('Wrong insurance status')
 
     now = datetime.datetime.now()
-    # Transaction begin
     Pause.objects.create(insurance_identifier=insurance, begin_at=now)
     insurance.status = Insurance.Status.ON_HOLD
     insurance.save()
-    # Transaction end
 
     return response.ok_no_content()
 

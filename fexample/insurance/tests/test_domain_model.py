@@ -1,7 +1,7 @@
 import pytest
 
 from fexample.insurance.domain_model import InsuranceStatus, MAX_AVAILABLE_PAUSES, PauseLimitExceeded, \
-    WrongStateForAction, CarLocationNotAllowed, PauseAlreadyFinished
+    WrongStateForAction, CarLocationNotAllowed, PauseAlreadyFinished, UnableToHoldInactive, UnableToHoldOnHold
 
 
 def test_hold_insurance(insurance):
@@ -21,14 +21,14 @@ def test_unable_to_hold_when_exceeded_pause_limit(insurance, allowed_location):
 def test_unable_to_hold_when_already_on_hold(insurance):
     insurance.hold()
 
-    with pytest.raises(WrongStateForAction):
+    with pytest.raises(UnableToHoldOnHold):
         insurance.hold()
 
 
 def test_unable_to_hold_when_in_inactive_status(insurance):
     insurance.status = InsuranceStatus.INACTIVE
 
-    with pytest.raises(WrongStateForAction):
+    with pytest.raises(UnableToHoldInactive):
         insurance.hold()
 
 

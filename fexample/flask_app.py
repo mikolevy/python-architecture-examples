@@ -7,8 +7,8 @@ def create_app():
     from fexample import db
     db.init_db()
 
-    from fexample.insurance.endpoints import loans
-    app.register_blueprint(loans)
+    from fexample.insurance.endpoints import insurances
+    app.register_blueprint(insurances)
 
     @app.teardown_appcontext
     def shutdown_session(exception=None):

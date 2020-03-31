@@ -18,6 +18,14 @@ class WrongStateForAction(DomainLogicException):
     pass
 
 
+class UnableToHoldInactive(DomainLogicException):
+    pass
+
+
+class UnableToHoldOnHold(DomainLogicException):
+    pass
+
+
 class PauseAlreadyFinished(DomainLogicException):
     pass
 
@@ -65,8 +73,11 @@ class Insurance:
         if len(self.pauses) >= MAX_AVAILABLE_PAUSES:
             raise PauseLimitExceeded()
 
-        if self.status not in [InsuranceStatus.ACTIVE or InsuranceStatus.IN_GREY_PERIOD]:
-            raise WrongStateForAction()
+        if self.status is InsuranceStatus.ON_HOLD:
+            raise UnableToHoldOnHold()
+
+        if self.status is InsuranceStatus.INACTIVE:
+            raise UnableToHoldInactive()
 
         self.pauses.append(Pause(insurance_identifier=self.identifier, begin_at=now))
         self.status = InsuranceStatus.ON_HOLD

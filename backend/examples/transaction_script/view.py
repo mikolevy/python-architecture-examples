@@ -36,10 +36,8 @@ def hold(request: Request) -> Response:
         return response.bad_request('Wrong insurance status')
 
     now = datetime.datetime.now()
-    # Transaction begin
     db.execute("INSERT INTO pauses (insurance_identifier, begin_at) VALUE ...")
     db.execute("UPDATE insurance SET status = ...")
-    # Transaction end
 
     return response.ok_no_content()
 
